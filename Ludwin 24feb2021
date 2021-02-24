@@ -1,0 +1,60 @@
+*//usar empleado
+public class UsarEmpleado {
+    public static void main(String[] args) {
+        Empleado emp1 = new Empleado();
+        emp1.setNombre("Ludwin");
+        emp1.setSueldo(10000.0f);
+        emp1.setHorasExtra(10);
+        float cobro = emp1.calcularsueldo();
+        System.out.println("gran total"+cobro);
+        System.out.println(emp1.toString() );
+          
+    }
+}
+
+*//empleado
+        this.horasExtra = horasExtra;
+    }
+
+    public int getHorasExtra() {
+        return horasExtra;
+    }
+
+    public void setHorasExtra(int horasExtra) {
+        this.horasExtra = horasExtra;
+    }
+
+    public int getNumeroEmpleado() {
+        return numeroEmpleado;
+    }
+
+    public void setNumeroEmpleado(int numeroEmpleado) {
+        this.numeroEmpleado = numeroEmpleado;
+    }
+
+    public String getDepartameto() {
+        return departameto;
+    }
+
+    public void setDepartameto(String departameto) {
+        this.departameto = departameto;
+    }
+
+    public float getSueldo() {
+        return sueldo;
+    }
+
+    public void setSueldo(float sueldo) {
+        this.sueldo = sueldo;
+    }
+
+    @Override
+    public String toString() {
+        return "Empleado{" + "numeroEmpleado=" + numeroEmpleado + ", departameto=" + departameto + ", sueldo=" + sueldo + ", horasExtra=" + horasExtra + '}';
+    }
+    
+    public float calcularsueldo(){
+        float sueldoTotal= 0.0f;
+        sueldoTotal = this.sueldo +(this.horasExtra *150.0f);
+        
+        return sueldoTotal;
