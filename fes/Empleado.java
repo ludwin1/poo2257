@@ -5,40 +5,38 @@
  */
 package mx.unam.aragon.fes;
 
+import java.io.Serializable;
+
 /**
  *
- * @author Mireya
+ * @author unam
  */
-public class Empleado extends Persona {
+public class Empleado extends Persona implements Serializable {
+
     private int numeroEmpleado;
-    private String departameto;
-    private float sueldo; 
+    private String departamento;
+    private float sueldo;
     private int horasExtra;
+    private Direccion domicilio;
 
     public Empleado() {
     }
 
-    public Empleado(int numeroEmpleado, String departameto, float sueldo, int horasExtra) {
+    public Empleado(int numeroEmpleado, String departamento, float sueldo, int horasExtra, Direccion domicilio) {
         this.numeroEmpleado = numeroEmpleado;
-        this.departameto = departameto;
+        this.departamento = departamento;
         this.sueldo = sueldo;
         this.horasExtra = horasExtra;
+        this.domicilio = domicilio;
     }
 
-    public Empleado(int numeroEmpleado, String departameto, float sueldo, int horasExtra, String nombre, String apPaterno, String apMaterno, int edad, String curp) {
+    public Empleado(int numeroEmpleado, String departamento, float sueldo, int horasExtra, Direccion domicilio, String nombre, String apPaterno, String apMaterno, int edad, String curp) {
         super(nombre, apPaterno, apMaterno, edad, curp);
         this.numeroEmpleado = numeroEmpleado;
-        this.departameto = departameto;
+        this.departamento = departamento;
         this.sueldo = sueldo;
         this.horasExtra = horasExtra;
-    }
-
-    public int getHorasExtra() {
-        return horasExtra;
-    }
-
-    public void setHorasExtra(int horasExtra) {
-        this.horasExtra = horasExtra;
+        this.domicilio = domicilio;
     }
 
     public int getNumeroEmpleado() {
@@ -49,12 +47,12 @@ public class Empleado extends Persona {
         this.numeroEmpleado = numeroEmpleado;
     }
 
-    public String getDepartameto() {
-        return departameto;
+    public String getDepartamento() {
+        return departamento;
     }
 
-    public void setDepartameto(String departameto) {
-        this.departameto = departameto;
+    public void setDepartamento(String departamento) {
+        this.departamento = departamento;
     }
 
     public float getSueldo() {
@@ -65,16 +63,33 @@ public class Empleado extends Persona {
         this.sueldo = sueldo;
     }
 
+    public int getHorasExtra() {
+        return horasExtra;
+    }
+
+    public void setHorasExtra(int horasExtra) {
+        this.horasExtra = horasExtra;
+    }
+
+    public Direccion getDomicilio() {
+        return domicilio;
+    }
+
+    public void setDomicilio(Direccion domicilio) {
+        this.domicilio = domicilio;
+    }
+
     @Override
     public String toString() {
-        return "Empleado{" + "numeroEmpleado=" + numeroEmpleado + ", departameto=" + departameto + ", sueldo=" + sueldo + ", horasExtra=" + horasExtra + '}';
+        return "Empleado{" + "numeroEmpleado=" + numeroEmpleado + ", departamento=" + departamento + ", sueldo=" + sueldo + ", horasExtra=" + horasExtra + ", domicilio=" + domicilio + '}';
     }
-    
-    public float calcularsueldo(){
-        float sueldoTotal= 0.0f;
-        sueldoTotal = this.sueldo +(this.horasExtra *150.0f);
-        
+
+    public float calcularSueldo() {
+        // Hoas exta a $150.0
+        float sueldoTotal = 0.0f;
+        sueldoTotal = this.sueldo + (this.horasExtra * 150.0f);
+
         return sueldoTotal;
     }
-    
+
 }
